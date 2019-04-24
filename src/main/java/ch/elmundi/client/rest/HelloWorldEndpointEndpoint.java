@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.net.URI;
 
 @Path("/hello")
@@ -21,7 +22,7 @@ public class HelloWorldEndpointEndpoint {
     private URI helloWorldServerUrl;
 
     @GET
-    @Produces("text/plain")
+    @Produces(MediaType.APPLICATION_JSON)
     public HelloWorld doGet() {
         ch.elmundi.sample.HelloWorldEndpoint helloWorldEndpoint = RestClientBuilder.newBuilder()
                 .baseUri(helloWorldServerUrl)
